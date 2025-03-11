@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: olubyw7ee-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: olubyw7ee-python 
+  name: olubyw7ee-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: olubyw7ee-python
+    weight: 100 
